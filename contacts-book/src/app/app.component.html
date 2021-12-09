@@ -1,0 +1,11 @@
+<nav>
+  <ul>
+    <li *ngIf='!isAuth'><a routerLink='login' routerLinkActive='active' >Login</a> </li>
+    <li *ngIf='!isAuth'><a routerLink='register' routerLinkActive='active'>Register</a></li>
+    <li><a routerLink='users' routerLinkActive='active'>Users</a></li>
+    <li *ngIf='isAuth'><a routerLink='contacts' routerLinkActive='active' >Contacts</a> </li>
+  </ul>
+</nav>
+<main>
+  <router-outlet></router-outlet>
+</main>

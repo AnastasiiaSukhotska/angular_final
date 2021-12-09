@@ -1,0 +1,6 @@
+<p class="alert" *ngIf='error !=null'>{{error}}</p>
+<dl>
+	<input type="text" [(ngModel)]='loginRequest.login'>
+	<input type="password" [(ngModel)]='loginRequest.password'>
+	<button (click)='login()'>login</button>
+</dl>
