@@ -9,6 +9,7 @@ import {FormsModule} from '@angular/forms';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import {AuthGuard} from './guards/auth.guard';
 import { RegisterComponent } from './components/register/register.component';
+import { AddContactComponent } from './components/add-contact/add-contact.component';
 const routes: Routes=[
   {path:'users', component:UsersComponent},
   {path:'login', component:LoginComponent},
@@ -24,7 +25,8 @@ const routes: Routes=[
     UsersComponent,
     LoginComponent,
     ContactsComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddContactComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, RouterModule.forRoot(routes), FormsModule

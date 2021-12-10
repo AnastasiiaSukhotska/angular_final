@@ -1,0 +1,14 @@
+ <div class="form">
+      <dl>
+        <dt><label for="person-name-input"></label></dt>
+        <dd><input type="text" id="person-name-input" [(ngModel)]="addContactRequest.name"></dd>
+        <dt><label for="input-type"></label></dt>
+        <dd><select name="type" id="input-type"  [(ngModel)]="addContactRequest.type">
+          <option value="email">email</option>
+          <option value="phone">phone</option>
+        </select></dd>
+        <dt><label for="person-phone-input"></label></dt>
+        <dd><input type="text" id="person-phone-input" [(ngModel)]="addContactRequest.value"></dd>
+        <dd><button (click)="addContact()">Add</button></dd>
+      </dl>
+    </div>

@@ -5,6 +5,8 @@ import {HttpClient} from '@angular/common/http';
 import {Links} from '../config/links';
 import {map, tap} from 'rxjs/operators';
 import {GetContactResponse} from '../models/get-contact-response';
+import {AddContactResponse} from '../models/add-contact-response';
+import {AddContactRequest} from '../models/add-contact-request';
 
 @Injectable({
   providedIn: 'root'
@@ -12,19 +14,34 @@ import {GetContactResponse} from '../models/get-contact-response';
 export class ContactsService {
 
   constructor(@Inject(AuthService) private authService:AuthService, @Inject(HttpClient) private http:HttpClient) { }
+  
   public getContacts():Observable<any>{
-
-    let token=this.authService.getToken();
-    console.log(token);
+      let token=this.authService.getToken();
     return this.http.get(Links.url('/contacts'),{
       headers: {
-        'Authorization': 'Bearer'+token,
+        'Authorization': 'Bearer '+token,
         'Accept':'application/json',
         'Content-Type':'application/json'
 
 
       }
     }).pipe(tap(r=>GetContactResponse.fromJson(r)));
+  }
+
+
+  public addContacts(r:AddContactRequest):Observable<AddContactResponse>{
+    let token=this.authService.getToken();
+    console.log(token);
+   return this.http.post(Links.url("/add"), r.toJson(), {
+    headers: {
+        'Authorization': 'Bearer '+token,
+        'Accept':'application/json',
+        'Content-Type':'application/json'
+      }
+
+      })
+    .pipe(map(r=>AddContactResponse.fromJson(r)));
+
   }
 }
 

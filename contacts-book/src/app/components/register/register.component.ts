@@ -24,7 +24,6 @@ export class RegisterComponent {
     }, 
     ()=>this.error='Error!!!'
     );
-     console.log('you are ')
   }
 
   ngOnInit():void{
