@@ -7,8 +7,15 @@ import {Contact} from '../../models/contact';
   styleUrls: ['./contacts.component.css']
 })
 export class ContactsComponent implements OnInit, OnDestroy {
-  contacts:Contact[]=[];
+  public contacts:Contact[]=[];
+ 
+   public activeContact:any;
   constructor(@Inject(ContactsService) private contactsService:ContactsService ) { }
+
+   changeContact(contact:any){
+    this.activeContact=contact;
+    this.contactsService.activateContact(contact);
+  }
 
   ngOnInit(): void {
     this.contactsService.getContacts().subscribe(r=>{

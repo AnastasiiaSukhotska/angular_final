@@ -4,6 +4,7 @@
     <li *ngIf='!isAuth'><a routerLink='register' routerLinkActive='active'>Register</a></li>
     <li><a routerLink='users' routerLinkActive='active'>Users</a></li>
     <li *ngIf='isAuth'><a routerLink='contacts' routerLinkActive='active' >Contacts</a> </li>
+     <li *ngIf='isAuth'><a routerLink='login' routerLinkActive='active' (click)='authService.logout()'>Logout</a> </li>
   </ul>
 </nav>
 <main>

@@ -17,15 +17,16 @@ export class AddContactComponent implements OnInit {
     console.log(this.addContactRequest.name, this.addContactRequest.value, this.addContactRequest.type)
     this.contactsService.addContacts(this.addContactRequest)
     .subscribe(r=>{
-      if(!r.isSuccessful()) this.error='Error!!!'
+      if(!r.isSuccessful()) this.error=r.error;
     })
+   
   }
 
 
 
   ngOnInit(): void {
     this.error=null;
-    this.addContactRequest.clean();
+   
   }
 
 }

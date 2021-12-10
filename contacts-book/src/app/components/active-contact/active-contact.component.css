@@ -1,0 +1,15 @@
+.chosen-contact{
+	box-shadow: 2px 2px 2px 2px #777;
+	background-color: #369;
+	padding: 20px;
+	margin-top: 10px;
+
+
+}
+
+
+.person-name, .person-contact, .contact-type{
+	background-color: #fff;
+	padding: 10px;
+
+}

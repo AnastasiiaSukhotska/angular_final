@@ -32,6 +32,7 @@ export class AuthService {
   public register(r:RegisterRequest):Observable<RegisterResponse>{
    return this.http.post(Links.url("/register"), r.toJson())
     .pipe(map(r=>RegisterResponse.fromJson(r)))
+
    
   }
 
@@ -50,8 +51,5 @@ export class AuthService {
     return this.token!=null;
   }
 
-  public isRegister():boolean{
-     return this.token!=null;
-  }
 
 }

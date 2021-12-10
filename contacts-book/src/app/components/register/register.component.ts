@@ -24,6 +24,8 @@ export class RegisterComponent {
     }, 
     ()=>this.error='Error!!!'
     );
+    alert('You are registrated')
+    this.registerRequest.clean();
   }
 
   ngOnInit():void{

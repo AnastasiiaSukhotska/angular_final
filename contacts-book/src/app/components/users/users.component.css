@@ -1,0 +1,21 @@
+
+ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	
+}
+
+ul li{
+	box-shadow: 1px 1px 1px 0 #777;
+	padding: 10px;
+	position: relative;
+}
+
+
+
+.content{
+	width: 300px;
+	background-color: #369;
+	color: #fff;
+}

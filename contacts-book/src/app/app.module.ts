@@ -10,6 +10,7 @@ import { ContactsComponent } from './components/contacts/contacts.component';
 import {AuthGuard} from './guards/auth.guard';
 import { RegisterComponent } from './components/register/register.component';
 import { AddContactComponent } from './components/add-contact/add-contact.component';
+import { ActiveContactComponent } from './components/active-contact/active-contact.component';
 const routes: Routes=[
   {path:'users', component:UsersComponent},
   {path:'login', component:LoginComponent},
@@ -26,7 +27,8 @@ const routes: Routes=[
     LoginComponent,
     ContactsComponent,
     RegisterComponent,
-    AddContactComponent
+    AddContactComponent,
+    ActiveContactComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, RouterModule.forRoot(routes), FormsModule

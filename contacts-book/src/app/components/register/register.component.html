@@ -1,11 +1,13 @@
-<p class="alert" *ngIf='error !=null'>{{error}}</p>
+ <div class="form">
 <dl>
+	<p class="alert" *ngIf='error !=null'>{{error}}</p>
 	<dt>login</dt>
 	<dd><input type="text" [(ngModel)]='registerRequest.login'></dd>
 	<dt>pass</dt>
 	<dd><input type="password" [(ngModel)]='registerRequest.password'></dd>
-	<dt>bate born</dt>
+	<dt>born date</dt>
 	<dd><input type="text" [(ngModel)]='registerRequest.bornDate'></dd>
 
 </dl>
 	<button (click)='register()'>register</button>
+</div>

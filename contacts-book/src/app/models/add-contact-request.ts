@@ -10,7 +10,7 @@ export class AddContactRequest{
 
 
 	clean(){
-		this.name='';
+		this.type='';
 		this.value='';
 		this.name='';
 	}

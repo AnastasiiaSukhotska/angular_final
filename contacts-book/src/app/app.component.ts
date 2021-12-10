@@ -11,14 +11,15 @@ import {Router} from '@angular/router';
 export class AppComponent {
   public isAuth:boolean=false;
   constructor(
-    @Inject(AuthService) private authService:AuthService,
+    @Inject(AuthService) public authService:AuthService,
     @Inject(Router) private router:Router
     ) {
     this.isAuth=authService.isAuth();
     this.authService.authSubject.subscribe(n=>{
       this.isAuth=true;
-      this.router.navigate(['users']);
+      this.router.navigate(['contacts']);
     });
     this.authService.logoutSubject.subscribe(n=>this.isAuth=false);
    }
+
 }
