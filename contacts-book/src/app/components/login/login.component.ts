@@ -16,6 +16,10 @@ constructor(@Inject(AuthService) private authService:AuthService){
 }
 
   login(){
+      if(!this.loginRequest.login||!this.loginRequest.password){
+      alert('Fill form')
+      return;
+    } 
     this.authService.auth(this.loginRequest)
     .subscribe(r=>{
       if(!r.isSuccessful()) this.error=r.error;

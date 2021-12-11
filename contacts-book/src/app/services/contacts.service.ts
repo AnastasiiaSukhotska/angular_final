@@ -16,6 +16,7 @@ export class ContactsService {
 private contactsSubject:Subject<Contact[]>=new Subject<Contact[]>();
  private contacts:Contact[]=[];
  private active:Contact|null=null;
+   public addedSubject:Subject<null>=new Subject<null>();
  
  private activeContactSubject:Subject<Contact|null>=new Subject();
 
@@ -38,6 +39,7 @@ private contactsSubject:Subject<Contact[]>=new Subject<Contact[]>();
 
   public addContacts(addContactRequest:AddContactRequest):Observable<AddContactResponse>{
     let token=this.authService.getToken();
+    let status=this.authService.getToken();
     console.log(token);
    return this.http.post(Links.url("/contacts/add"), addContactRequest, {
     headers: {
@@ -48,11 +50,17 @@ private contactsSubject:Subject<Contact[]>=new Subject<Contact[]>();
 
       })
     .pipe(map(r=>AddContactResponse.fromJson(r)))
-    .pipe(tap(r=>(console.log(r))))
-
-    
+   
 
   }
+
+
+   
+
+
+
+
+
 public activateContact(contact: Contact|null){
     this.active=contact;
     this.activeContactSubject.next(contact);

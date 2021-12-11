@@ -14,12 +14,17 @@ export class AddContactComponent implements OnInit {
   constructor(@Inject(ContactsService) private contactsService:ContactsService) { }
 
   addContact(){
-    console.log(this.addContactRequest.name, this.addContactRequest.value, this.addContactRequest.type)
+    if(!this.addContactRequest.name||!this.addContactRequest.type||!this.addContactRequest.value){
+      alert('Fill form')
+      return;
+    } 
     this.contactsService.addContacts(this.addContactRequest)
     .subscribe(r=>{
       if(!r.isSuccessful()) this.error=r.error;
-    })
-   
+    });
+      alert('Contact added!')
+      this.addContactRequest.clean();
+
   }
 
 

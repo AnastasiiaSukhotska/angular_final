@@ -2,6 +2,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {AuthService} from './services/auth.service';
 import {Router} from '@angular/router';
+import {ContactsService} from './services/contacts.service';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ export class AppComponent {
   public isAuth:boolean=false;
   constructor(
     @Inject(AuthService) public authService:AuthService,
+     @Inject(ContactsService) public contactsService:ContactsService,
     @Inject(Router) private router:Router
     ) {
     this.isAuth=authService.isAuth();
@@ -19,6 +21,9 @@ export class AppComponent {
       this.isAuth=true;
       this.router.navigate(['contacts']);
     });
+    this.contactsService.addedSubject.subscribe(n=>{
+      this.router.navigate(['contacts']);
+    })
     this.authService.logoutSubject.subscribe(n=>this.isAuth=false);
    }
 

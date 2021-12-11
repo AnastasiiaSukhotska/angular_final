@@ -16,6 +16,10 @@ export class RegisterComponent {
 
 }
   register(){
+    if(!this.registerRequest.login||!this.registerRequest.password||this.registerRequest.bornDate){
+      alert('Fill form')
+      return;
+    } 
         this.authService.register(this.registerRequest)
     .subscribe(r=>{
       if(!r.isSuccessful()) 
